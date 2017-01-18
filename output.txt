@@ -1,0 +1,109 @@
+
+> @ e2e D:\workspace\nightwatch
+> nightwatch --config ./config.js --env chrome "./test/loadTest.js"
+
+[1;35mStarting selenium server... [0m[1;35mstarted - PID: [0m 3256
+
+[0;36m[Load Test] Test Suite[0m
+[0;35m==========================[0m
+
+--------
+totalRequests : 1
+totalErrors : 1
+totalTimeSeconds : 0.586433106
+rps : 2
+meanLatencyMs : 581.7
+maxLatencyMs : 581
+minLatencyMs : 581
+errorCodes : {"405":1}
+--------
+--------
+totalRequests : 2
+totalErrors : 2
+totalTimeSeconds : 1.0604576360000002
+rps : 2
+meanLatencyMs : 528.4
+maxLatencyMs : 581
+minLatencyMs : 475
+errorCodes : {"405":2}
+--------
+--------
+totalRequests : 3
+totalErrors : 3
+totalTimeSeconds : 1.546676158
+rps : 2
+meanLatencyMs : 514.3
+maxLatencyMs : 581
+minLatencyMs : 475
+errorCodes : {"405":3}
+--------
+--------
+totalRequests : 4
+totalErrors : 4
+totalTimeSeconds : 2.022403182
+rps : 2
+meanLatencyMs : 504.6
+maxLatencyMs : 581
+minLatencyMs : 475
+errorCodes : {"405":4}
+--------
+--------
+totalRequests : 5
+totalErrors : 5
+totalTimeSeconds : 2.5288366989999997
+rps : 2
+meanLatencyMs : 505
+maxLatencyMs : 581
+minLatencyMs : 475
+errorCodes : {"405":5}
+--------
+--------
+totalRequests : 6
+totalErrors : 6
+totalTimeSeconds : 3.026639689
+rps : 2
+meanLatencyMs : 503.8
+maxLatencyMs : 581
+minLatencyMs : 475
+errorCodes : {"405":6}
+--------
+--------
+totalRequests : 7
+totalErrors : 7
+totalTimeSeconds : 3.523478349
+rps : 2
+meanLatencyMs : 502.8
+maxLatencyMs : 581
+minLatencyMs : 475
+errorCodes : {"405":7}
+--------
+--------
+totalRequests : 8
+totalErrors : 8
+totalTimeSeconds : 3.984586443
+rps : 2
+meanLatencyMs : 497.6
+maxLatencyMs : 581
+minLatencyMs : 461
+errorCodes : {"405":8}
+--------
+--------
+totalRequests : 9
+totalErrors : 9
+totalTimeSeconds : 4.450528376
+rps : 2
+meanLatencyMs : 494
+maxLatencyMs : 581
+minLatencyMs : 461
+errorCodes : {"405":9}
+--------
+--------
+totalRequests : 10
+totalErrors : 10
+totalTimeSeconds : 4.930353
+rps : 2
+meanLatencyMs : 492.5
+maxLatencyMs : 581
+minLatencyMs : 461
+errorCodes : {"405":10}
+--------
