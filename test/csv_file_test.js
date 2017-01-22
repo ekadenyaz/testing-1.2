@@ -1,11 +1,12 @@
 module.exports = {
     'Advance Guardian CSV Test': function(browser) {
         var client = browser.page.csv()
+        var nik = ''
             //Clear all the Field and then Fill the client information and click submit\
         var personalDataList = client.getPersonalData('./test/csv.txt')
         for (var index = 0; index < personalDataList.length; index++) {
             var personalData = personalDataList[index].toString().split('\t')
-            var nik = personalData[3]
+            nik = personalData[3]
             if (nik == " " || nik == null) {
                 break
             }
@@ -19,8 +20,8 @@ module.exports = {
             browser.window_handles(function(result) {
                 browser.switchWindow(result.value[1])
                     //  Ensure the page has finished loading and take screenshot after
-                browser.waitForElementVisible('(//div[@class="report-content"])', 120000, ' %d is required to load the full report page for : ' + nik)
-                browser.waitForElementNotVisible('(//div[@class="el-loading-mask"])', 120000, ' %d is required to completely load the report content')
+                client.waitForElementVisible('(//div[@class="report-content"])', 120000, ' %d is required to load the full report page (%s) for : ' + nik)
+                client.waitForElementNotVisible('(//div[@class="el-loading-mask"])', 120000, ' %d is required to completely load the report content (%s)')
                 browser.pause(1000)
                     .resizeWindow(1000, 500)
                     .saveScreenshot('./screenshot/' + nik + '-fullreport.png')

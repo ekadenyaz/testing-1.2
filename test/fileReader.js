@@ -4,7 +4,7 @@ var parse = require('csv-parse')
 
 function getNIK(filePath, line) {
     var array = fs.readFileSync(filePath).toString().split("\n")
-    return array[line]
+    return array[line + 1]
 }
 var line = getNIK('./test/csv.txt', 2).toString().split("\t")
 console.log(line)
