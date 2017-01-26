@@ -84,7 +84,7 @@ var csvCommands = {
             .setValue('@employerNameField', employerName)
             .click('@jobIndustryField')
             .dropDownPause(browser, 3000)
-        this.click('//span[text()="' + 'Others' + '"]')
+        this.click('//span[text()="' + jobIndustry + '"]')
             .clearValue('@monthlyIncomeField')
             .setValue('@monthlyIncomeField', monthlyIncome)
             .click('@jobPositionField')
