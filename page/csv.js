@@ -4,38 +4,42 @@ var readline = require('readline')
 var csvCommands = {
     fillForm: function(browser, personData) {
         //        var personData = personDataList.toString().split('\t')
+        var employmentStatusArray = ['FULL TIME', 'PART TIME']
+            // var jobIndustryArray = ['Others']
+        var jobPositionArray = ['Manager', 'Supervisor', 'Director', 'Staff']
         var name = personData[0] //.toUpperCase()
-        var pob = personData[2] //.toUpperCase()
-        var nik = personData[3]
-        var mobile = personData[4]
-        var education = personData[5]
+        var pob = personData[3] //.toUpperCase()
+        var nik = personData[1]
+        var mobile = personData[5]
+        var education = personData[8]
         var maritalStatus = personData[6]
         var dependencies = personData[7]
-        var zip = personData[8]
+        var zip = personData[21]
         var areaCode = '+62'
-        var province = personData[9]
-        var city = personData[10] //.toUpperCase()
-        var region = personData[11] //.toUpperCase()
-        var kelurahan = personData[12] //.toUpperCase()
+        var province = personData[20]
+        var city = personData[19].toLowerCase()
+        var region = personData[18].toLowerCase()
+        var kelurahan = personData[17].toLowerCase()
 
-        var employmentStatus = personData[13]
-        var employerName = personData[14] //.toUpperCase()
-        var jobIndustry = personData[15] //.toUpperCase()
-        var jobPosition = personData[16]
-        var jobType = personData[17] //.toUpperCase()
-        var monthlyIncome = personData[19]
+        var employmentStatus = employmentStatusArray[Math.floor(Math.random() * employmentStatusArray.length)]
+        var employerName = personData[35]
+        var jobIndustry = 'Others'
+        var jobPosition = personData[34]
+        var jobTypeCode = personData[33]
+        var jobType = this.getJobType(jobTypeCode)
+        var monthlyIncome = personData[47]
         var companyAreaCode = '+62'
-        var companyLandline = personData[20]
-        var companyZip = personData[21]
+        var companyLandline = personData[44] + personData[45]
+        var companyZip = personData[43]
         var workSinceDate = new Date('2014-03-30')
-        var companyAddress = personData[22] //.toUpperCase()
+        var companyAddress = personData[37]
 
-        var homeStatus = personData[23]
-        var monthlyRental = personData[24]
-        var residentialPhone = personData[25]
+        var homeStatus = personData[9]
+        var monthlyRental = personData[11]
+        var residentialPhone = personData[31] + personData[32]
         var residentialAreaCode = '+62'
-        var residentialZip = personData[26]
-        var residentialAddress = personData[27] //.toUpperCase()
+        var residentialZip = personData[30]
+        var residentialAddress = personData[14] //.toUpperCase()
 
         this.waitForElementVisible('@nameField', 120000)
             //            .click('@closeButton')
@@ -61,30 +65,33 @@ var csvCommands = {
         this.click('//span[text()="' + education + '"]')
             .click('@cityField')
             .dropDownPause(browser, 1000)
-        this.click('//span[text()[contains(.,"' + city + '")]]')
+        this.click('//span[contains(translate(text(),"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"), "' + city + '")]')
             .click('@maritalStatusField')
             .dropDownPause(browser, 1000)
         this.click('//span[text()="' + maritalStatus + '"]')
             .click('@regionField')
             .dropDownPause(browser, 1000)
-        this.click('//span[text()="' + region + '"]')
+        this.click('//span[contains(translate(text(),"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"), "' + region + '")]')
             .click('@dependentsField')
             .dropDownPause(browser, 1000)
         this.click('//span[text()="' + dependencies + '"]')
             .click('@kelurahanField')
             .dropDownPause(browser, 1000)
-        this.click('//span[text()="' + kelurahan + '"]')
+        this.click('//span[contains(translate(text(),"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"), "' + kelurahan + '")]')
             .click('@employmentStatusField')
             .dropDownPause(browser, 1000)
         this.click('//span[text()="' + employmentStatus + '"]')
             .clearValue('@employerNameField')
             .setValue('@employerNameField', employerName)
             .clearValue('@jobIndustryField')
+            .click('@jobIndustryField')
             .setValue('@jobIndustryField', jobIndustry)
+            .dropDownPause(browser, 5000)
+        this.click('//span[text()="' + jobIndustry + '"]')
             .clearValue('@monthlyIncomeField')
             .setValue('@monthlyIncomeField', monthlyIncome)
             .click('@jobPositionField')
-            .dropDownPause(browser, 1000)
+            .dropDownPause(browser, 2000)
         this.click('//span[text()="' + jobPosition + '"]')
             .click('@companyAreaCodeField')
             .dropDownPause(browser, 1000)
@@ -99,7 +106,6 @@ var csvCommands = {
             .clearValue('@workSinceDateField')
             .click('@workSinceDateField')
             .dropDownPause(browser, 2000)
-            //        this.click('/html/body/div[2]/div[1]/div/div[2]/table[1]/tbody/tr[2]/td[7]')
         this.setValue('@workSinceDateField', workSinceDate)
             .clearValue('@companyAddressField')
             .setValue('@companyAddressField', companyAddress)
@@ -126,13 +132,23 @@ var csvCommands = {
     getPersonalData: function(filePath) {
         var array = fs.readFileSync(filePath).toString().split("\n")
         return array
+    },
+    getJobType: function(jobTypeCode) {
+        switch (jobTypeCode) {
+            case '141':
+                return 'Entrepreneur'
+            case '991':
+                return 'Others'
+            case '8':
+                return 'Marketing'
+        }
     }
 
 }
 
 module.exports = {
     commands: [csvCommands],
-    url: 'http://192.168.40.7:8080/application',
+    url: 'http://dev-fe.advance.ai/application',
     elements: {
         closeButton: {
             selector: '//i[@class="el-dialog__close el-icon el-icon-close"]',

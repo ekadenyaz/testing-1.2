@@ -137,3 +137,9 @@ jspm_packages
 ##################
 reports
 screenshot/
+test/csv_test.csv
+test/bing.js
+test/csv.txt
+test/file_test.js
+test/fileReader.js
+test/Nik.txt

@@ -1,37 +1,52 @@
 
 > @ e2e D:\workspace\nightwatch2
-> nightwatch --config ./config.js --env chrome "./test/fileReader.js"
+> nightwatch --config ./config.js --env phantomjs "./test/csv_test.js"
 
-[1;35mStarting selenium server... [0m[1;35mstarted - PID: [0m 12704
-[ 'SUHAN DICKY',
-  '2/2/1989',
-  'JAKARTA',
-  '3275120402939000',
-  '81219486924',
-  'JUNIOR HIGH SCHOOL',
-  'SINGLE',
-  '0',
-  '17414',
-  'Jawa Barat',
-  'Bekasi',
-  'Pondok Melati',
-  'Jati Rahayu',
-  'FULL TIME',
-  'INDOMARET',
-  'Retail Seller',
-  'Staff',
-  'Government',
-  '2011',
-  '3100000',
-  '21 - 8489744',
-  '17414',
-  'JATIRAHAYU',
-  'OWN',
-  '3000000',
-  '21 - 84675133',
-  '17414',
-  'KP BULAK TINGGI JALAN NO 113\r' ]
+[1;35mStarting selenium server... [0m[1;35mstarted - PID: [0m 7228
 
-[0;36m[File Reader] Test Suite[0m
-[0;35m============================[0m
+[0;36m[Csv Test] Test Suite[0m
+[0;35m=========================[0m
+
+Running:  [0;32mAdvance Guardian CSV Test[0m
+ [0;32m√[0m Element <(//input[@type="text"])[position()=1]> was visible after 110 milliseconds.
+[0;31mERROR: Unable to locate element: "//span[text()="Constructon"]" using: xpath[0m
+[0;90m    at Object.csvCommands.fillForm (D:\workspace\nightwatch2\page\csv.js:87:14)
+    at Object.module.exports.Advance Guardian CSV Test (D:\workspace\nightwatch2\test\csv_test.js:10:20)[0m
+[0;31mERROR: Unable to locate element: "//span[text()="141"]" using: xpath[0m
+[0;90m    at Object.csvCommands.fillForm (D:\workspace\nightwatch2\page\csv.js:92:14)
+    at Object.module.exports.Advance Guardian CSV Test (D:\workspace\nightwatch2\test\csv_test.js:10:20)[0m
+ [0;32m√[0m Element <//*[@id="submit"]> was visible after 38 milliseconds.
+ [0;32m√[0m Score Report ((//div[@class="report-content"])) Load Time: 1374 ms  for : 3301215305640000
+[0;32m  Warn: WaitForElement found 6 elements for selector "(//div[@class="el-loading-mask"])". Only the first one will be checked.[0m
+ [0;32m√[0m  Fully Page ((//div[@class="el-loading-mask"])) Loadtime : 20549 ms 
+ ------------------------------------------------- 
+ 
+ [0;32m√[0m Element <(//input[@type="text"])[position()=1]> was visible after 41 milliseconds.
+ [0;32m√[0m Element <//*[@id="submit"]> was visible after 36 milliseconds.
+ [0;31m×[0m Score Report ((//div[@class="report-content"])) Load Time: 120000 ms  for : 3216195405850020 [1;37m - expected [0;32m"visible"[0m[0m but got: [0;31m"not found"[0m
+[0;90m    at Object.module.exports.Advance Guardian CSV Test (D:\workspace\nightwatch2\test\csv_test.js:17:20)[0m
+
+
+[0;31mFAILED: [0m [0;31m1[0m assertions failed, [0;31m2[0m errors and [0;32m6[0m passed (4m 15s / 255576ms)
+
+[1;31m _________________________________________________[0m
+
+ [1;31mTEST FAILURE:[0m [0;31m2[0m errors during execution,  [0;31m1[0m assertions failed, [0;32m6[0m passed. (4m 16s)
+
+[0;31m × csv_test[0m
+
+   - Advance Guardian CSV Test [1;33m(4m 15s)[0m
+[0;31m   Score Report ((//div[@class="report-content"])) Load Time: 120000 ms  for : 3216195405850020 [1;37m - expected [0;32m"visible"[0m[0m but got: [0;31m"not found"[0m[0m
+[0;90m       at Object.module.exports.Advance Guardian CSV Test (D:\workspace\nightwatch2\test\csv_test.js:17:20)[0m
+
+[0;31m   ERROR: Unable to locate element: "//span[text()="Constructon"]" using: xpath[0m
+[0;90m       at Object.csvCommands.fillForm (D:\workspace\nightwatch2\page\csv.js:87:14)
+       at Object.module.exports.Advance Guardian CSV Test (D:\workspace\nightwatch2\test\csv_test.js:10:20)[0m
+
+
+[0;31m   ERROR: Unable to locate element: "//span[text()="141"]" using: xpath[0m
+[0;90m       at Object.csvCommands.fillForm (D:\workspace\nightwatch2\page\csv.js:92:14)
+       at Object.module.exports.Advance Guardian CSV Test (D:\workspace\nightwatch2\test\csv_test.js:10:20)[0m
+
+
 

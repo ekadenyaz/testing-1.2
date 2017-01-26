@@ -23,6 +23,8 @@ module.exports = {
             'selenium_host': 'localhost',
             'silent': true,
             'use_xpath': true,
+            'end_session_on_fail': true,
+            'skip_testcases_on_fail': false,
             'screenshots': {
                 'enabled': true,
                 'path': './reports/screenshot'

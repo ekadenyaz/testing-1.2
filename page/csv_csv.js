@@ -11,26 +11,26 @@ var csvCommands = {
         var pob = personData[10]
         var nik = personData[9]
         var mobile = '87736900198'
-        var education = educationArray[Math.floor(Math.random() * educationArray.length)] //13
+        var education = 'BACHELOR DEGREE' //educationArray[Math.floor(Math.random() * educationArray.length)] //13
         var maritalStatus = personData[14]
-        var dependencies = personData[7]
+        var dependencies = parseInt(personData[15])
         var zip = personData[5]
         var areaCode = '+62'
-        var province = 'Jawa Barat'
-        var city = 'Bekasi'
-        var region = 'Pondok Melati'
-        var kelurahan = 'Jatiwarna'
+        var province = 'Kepulauan Riau'
+        var city = 'Tanjung Pinang'
+        var region = 'Tanjung Pinang Timur'
+        var kelurahan = 'Melayu Kota Piring'
 
-        var employmentStatus = employmentStatusArray[Math.floor(Math.random() * employmentStatusArray.length)]
+        var employmentStatus = 'FULL TIME' //employmentStatusArray[Math.floor(Math.random() * employmentStatusArray.length)]
         var employerName = 'BANK CENTRAL ASIA'
-        var jobIndustry = 'Others'
-        var jobPosition = jobPositionArray[Math.floor(Math.random() * jobPositionArray.length)]
-        var jobType = 'Education' //.toUpperCase()
+        var jobIndustry = 'Leasing'
+        var jobPosition = 'Manager' //jobPositionArray[Math.floor(Math.random() * jobPositionArray.length)]
+        var jobType = 'Accountant/Finance' //.toUpperCase()
         var monthlyIncome = personData[23]
         var companyAreaCode = '+62'
         var companyLandline = '21 - 4609412'
         var companyZip = '17139'
-        var workSinceDate = new Date('2014-03-30')
+        var workSinceDate = '2014-03-30'
         var companyAddress = personData[1]
 
         var homeStatus = 'RENT'
@@ -40,7 +40,7 @@ var csvCommands = {
         var residentialZip = personData[5]
         var residentialAddress = personData[1] //.toUpperCase()
 
-        this.waitForElementVisible('@nameField', 120000)
+        this.waitForElementVisible('@nameField', 120000, '------------------------------------------------- \n Succesfully Load the Application Page, Filling Application Page...')
             //            .click('@closeButton')
         this.clearValue('@nameField')
             .setValue('@nameField', name)
@@ -83,8 +83,8 @@ var csvCommands = {
             .clearValue('@employerNameField')
             .setValue('@employerNameField', employerName)
             .click('@jobIndustryField')
-            .dropDownPause(browser, 1000)
-        this.click('//span[text()="' + jobIndustry + '"]')
+            .dropDownPause(browser, 3000)
+        this.click('//span[text()="' + 'Others' + '"]')
             .clearValue('@monthlyIncomeField')
             .setValue('@monthlyIncomeField', monthlyIncome)
             .click('@jobPositionField')
@@ -105,6 +105,7 @@ var csvCommands = {
             .dropDownPause(browser, 2000)
             //        this.click('/html/body/div[2]/div[1]/div/div[2]/table[1]/tbody/tr[2]/td[7]')
         this.setValue('@workSinceDateField', workSinceDate)
+            .click('@workSinceDateField')
             .clearValue('@companyAddressField')
             .setValue('@companyAddressField', companyAddress)
             .click('@homeStatusField')
@@ -122,7 +123,7 @@ var csvCommands = {
             .setValue('@residentialPhoneField', residentialPhone)
             .clearValue('@residentialAddressField')
             .setValue('@residentialAddressField', residentialAddress)
-            .waitForElementVisible('@submitButton', 2000)
+            .waitForElementVisible('@submitButton', 2000, 'Finished Filling the application')
     },
     dropDownPause: function(browser, time) {
         browser.pause(time)

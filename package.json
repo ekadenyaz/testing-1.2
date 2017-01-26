@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "e2e": "nightwatch --config ./config.js --env phantomjs"
+        "e2e": "nightwatch --config ./config.js --env chrome"
     },
     "devDependencies": {
         "connect": "^3.5.0",
