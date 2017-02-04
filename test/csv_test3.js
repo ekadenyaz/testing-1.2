@@ -1,10 +1,10 @@
 module.exports = {
-    'Advance Guardian CSV Test': function (browser) {
+    'Advance Guardian CSV UI Test': function (browser) {
         var client = browser.page.csv3()
         var personalDataList = client.getPersonalData('./data/csv_test3.csv')
-        for (var index = 0; index < 99; index++) {
-            var personalData = personalDataList[index + 1].toString().split(',')
-            var nik = personalData[5]
+        personalDataList.forEach((personalData) => {
+            const nik = personalData.IDNumber
+            console.log(nik)
             client.navigate()
             client.fillForm(browser, personalData)
             browser.pause(2000)
@@ -18,7 +18,7 @@ module.exports = {
             browser.pause(10000)
                 .resizeWindow(1000, 500)
                 .saveScreenshot('./screenshot/' + nik + '-fullreport.png')
-        }
+        })
         browser.end()
     },
 }
