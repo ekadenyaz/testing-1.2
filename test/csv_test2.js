@@ -1,9 +1,9 @@
 module.exports = {
     'Advance Guardian CSV Test': function(browser) {
-        var client = browser.page.csv_csv()
+        var client = browser.page.csv2()
         var index = 225
             //Clear all the Field and then Fill the client information and click submit\
-        var personalDataList = client.getPersonalData('./test/csv_test.csv')
+        var personalDataList = client.getPersonalData('./test/csv_test2.csv')
         var personalData = personalDataList[index].toString().split(',')
         var nik = personalData[9]
         client.navigate()
